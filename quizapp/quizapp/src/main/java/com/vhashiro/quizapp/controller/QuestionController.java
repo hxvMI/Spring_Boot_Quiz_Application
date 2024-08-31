@@ -3,9 +3,7 @@ import com.vhashiro.quizapp.entity.Question;
 import com.vhashiro.quizapp.service.QuestionService;
 import com.vhashiro.quizapp.service.QuestionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,6 +18,17 @@ public class QuestionController {
     public List<Question> startGetQuestionsList(){
         return questionService.getQuestionsList();
     }
+
+    @GetMapping("category/{categoryName}")
+    public List<Question> startGetQuestionsListCategory(@PathVariable String categoryName){
+        return questionService.getQuestionsListCategory(categoryName);
+    }
+
+    @PostMapping("add")
+    public String startAddQuestion(@RequestBody Question question){
+        return questionService.addQuestion(question);
+    }
+
 
 
 

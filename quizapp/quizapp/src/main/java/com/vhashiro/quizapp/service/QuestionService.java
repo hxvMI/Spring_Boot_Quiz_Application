@@ -6,6 +6,9 @@ import java.util.List;
 
 public interface QuestionService {
 
-    public List<Question> getQuestionsList();
+    List<Question> getQuestionsList();
 
+    List<Question> getQuestionsListCategory(String categoryName);
+
+    String addQuestion(Question question);
 }

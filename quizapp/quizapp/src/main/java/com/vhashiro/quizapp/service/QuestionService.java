@@ -1,14 +1,13 @@
 package com.vhashiro.quizapp.service;
-
 import com.vhashiro.quizapp.entity.Question;
-
+import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface QuestionService {
 
-    List<Question> getQuestionsList();
+    ResponseEntity<List<Question>> getQuestionsList();
 
-    List<Question> getQuestionsListCategory(String categoryName);
+    ResponseEntity<List<Question>> getQuestionsListCategory(String categoryName);
 
-    String addQuestion(Question question);
+    ResponseEntity<String> addQuestion(Question question);
 }

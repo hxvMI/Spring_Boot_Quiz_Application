@@ -17,7 +17,11 @@ public class QuestionServiceImpl implements QuestionService {
     @Autowired
     private QuestionRepository questionRepository;
 
-    /** ResponseEntity<>(Data, HttpStatus.OK)
+    /** Uses questionRepository built-in method .findAll()
+     *  to get all [Question objects] from Table in DB
+     *
+     *  returns
+     *  ResponseEntity<>(Data, HttpStatus.OK)
      *  returns a ResponseEntity containing the <list<Questions>> + a HttpStatus code */
     @Override
     public ResponseEntity<List<Question>> getQuestionsList() {
@@ -29,6 +33,9 @@ public class QuestionServiceImpl implements QuestionService {
         return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
     }
 
+    /** Uses custom QuestionRepository method to get
+     *  [Question objects] from Table in DB
+     *  that match the categoryName  */
     @Override
     public ResponseEntity<List<Question>> getQuestionsListCategory(String categoryName) {
         try{
@@ -39,6 +46,8 @@ public class QuestionServiceImpl implements QuestionService {
         return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
     }
 
+    /** Uses questionRepository built-in method .save()
+     *  to save a [Question object] to Table in DB  */
     @Override
     public ResponseEntity<String> addQuestion(Question question) {
         try{

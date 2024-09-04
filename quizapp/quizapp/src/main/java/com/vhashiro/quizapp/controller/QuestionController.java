@@ -28,6 +28,7 @@ public class QuestionController {
         return questionService.getQuestionsListCategory(categoryName);
     }
 
+    /** Adds Question to Question Table in DB */
     @PostMapping("add")
     public ResponseEntity<String> startAddQuestion(@RequestBody Question question){
         return questionService.addQuestion(question);

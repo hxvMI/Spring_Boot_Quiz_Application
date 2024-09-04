@@ -1,0 +1,31 @@
+quiz/create?questionCategory=java&numQuestions=1&title=FirstQ
+
+
+
+
+http://localhost:8083/question/add
+{
+    "questionID": 2,
+    "questionName": "What is polymorphism in Java?",
+    "option1": "A process of converting data types",
+    "option2": "An ability to take many forms",
+    "option3": "A way to encapsulate data",
+    "option4": "A method of overloading",
+    "rightAnswer": "An ability to take many forms",
+    "questionCategory": "java"
+}
+
+
+
+
+http://localhost:8083/quiz/submit/2
+[
+    {
+        "id": 1,
+        "selectedOption": "An ability to take many forms"
+    },
+    {
+        "id": 2,
+        "selectedOption": "A process of converting data types"
+    }
+]

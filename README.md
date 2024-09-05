@@ -96,7 +96,7 @@ spring.datasource.password=root
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ```
 
-### H2(In-Memory Database)
+### H2 (In-Memory Database)
 
 For development and testing, you can switch to an H2 in-memory database by uncommenting the following lines in `application.properties`:
 ```properties

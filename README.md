@@ -56,32 +56,6 @@ src/main/java/com/vhashiro/quizapp
 └── application.properties   # Configuration file 
 ```
 
-## API Endpoints
-
-### Question Endpoints
-
-- **Get all questions**
-  - **GET** `/question/allQuestions`  
-    Retrieves all the questions stored in the database.
-- **Get questions by category**
-  - **GET** `/question/category/{categoryName}`
-    Retrieves questions based on their category.
-- **Add a new question**
-  - **POST** `/questions/add`
-    Adds a new question to the database.
-
- ### Quiz Endpoints
-
-- **Create a new quiz**
-  - **POST** `/quiz/create?questionCategory={category}&numQuestions={numQuestions}&title={title}`  
-    Creates a quiz from randomly selected questions in the specified category.
-- **Get quiz by ID**
-  - **GET** `/quiz/get/{id}`
-    Retrieves a quiz by its ID.
-- **Submit a quiz**
-  - **POST** `/quiz/submit/{id}/`
-    Submits a quiz and calculates the score based on user responses.
-
 ## Database Configuration
 
 ### MySQL (Default)
@@ -107,6 +81,32 @@ For development and testing, you can switch to an H2 in-memory database by uncom
 #spring.datasource.password=password
 #spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 ```
+
+## API Endpoints
+
+### Question Endpoints
+
+- **Get all questions**
+  - **GET** `/question/allQuestions`  
+    Retrieves all the questions stored in the database.
+- **Get questions by category**
+  - **GET** `/question/category/{categoryName}`
+    Retrieves questions based on their category.
+- **Add a new question**
+  - **POST** `/questions/add`
+    Adds a new question to the database.
+
+ ### Quiz Endpoints
+
+- **Create a new quiz**
+  - **POST** `/quiz/create?questionCategory={category}&numQuestions={numQuestions}&title={title}`  
+    Creates a quiz from randomly selected questions in the specified category.
+- **Get quiz by ID**
+  - **GET** `/quiz/get/{id}`
+    Retrieves a quiz by its ID.
+- **Submit a quiz**
+  - **POST** `/quiz/submit/{id}/`
+    Submits a quiz and calculates the score based on user responses.
 
 ## Testing the API
 

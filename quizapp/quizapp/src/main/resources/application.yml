@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: quizapp
+
+  # Default profile settings
+  profiles:
+    active: mysql  # Set default profile to mysql
+
+  # Common settings across all profiles
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  server:
+    port: 8083
+
+# Profile-specific settings
+---
+spring:
+  profiles: h2
+  datasource:
+    url: jdbc:h2:mem:dcbapp
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
+    # Enable H2 console
+    h2:
+      console:
+        enabled: true
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+---
+spring:
+  profiles: mysql
+  datasource:
+    url: jdbc:mysql://localhost:3306/quiz_database
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect

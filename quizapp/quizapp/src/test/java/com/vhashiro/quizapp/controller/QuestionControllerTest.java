@@ -1,7 +1,6 @@
 package com.vhashiro.quizapp.controller;
 
 import com.vhashiro.quizapp.entity.Question;
-import com.vhashiro.quizapp.entity.QuestionWrapper;
 import com.vhashiro.quizapp.service.QuestionService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.Arrays;
@@ -63,15 +61,15 @@ class QuestionControllerTest {
 
 
         /** Verify response with JUNIT using @InjectMocks controller **/
-        ResponseEntity<List<Question>> response = questionController.startGetQuestionsList();
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(2, response.getBody().size());
+        ResponseEntity<List<Question>> actualResult = questionController.startGetQuestionsList();
+        assertEquals(HttpStatus.OK, actualResult.getStatusCode());
+        assertEquals(2, actualResult.getBody().size());
     }
 
     @Test
     void testStartGetQuestionsListCategory() throws Exception {
         // Create a mock list of questions in a specific category
-        List<Question> mockQuestions = Arrays.asList(
+        List<Question> mockQuestions = List.of(
                 new Question(1, 1, "What is Java?", "Option1", "Option2", "Option3", "Option4", "Option1", "Programming")
         );
 
@@ -86,10 +84,10 @@ class QuestionControllerTest {
 
 
         /** Verify response with JUNIT using @InjectMocks controller **/
-        ResponseEntity<List<Question>> response = questionController.startGetQuestionsListCategory("Programming");
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(1, response.getBody().size());
-        assertEquals("Programming", response.getBody().get(0).getQuestionCategory());
+        ResponseEntity<List<Question>> actualResult = questionController.startGetQuestionsListCategory("Programming");
+        assertEquals(HttpStatus.OK, actualResult.getStatusCode());
+        assertEquals(1, actualResult.getBody().size());
+        assertEquals("Programming", actualResult.getBody().get(0).getQuestionCategory());
     }
 
     @Test
@@ -109,9 +107,10 @@ class QuestionControllerTest {
                 .andExpect(status().isCreated());
 
 
+
         /** Verify response with JUNIT using @InjectMocks controller **/
-        ResponseEntity<String> response = questionController.startAddQuestion(
+        ResponseEntity<String> actualResult = questionController.startAddQuestion(
                 new Question(1, 1, "What is Java?", "Option1", "Option2", "Option3", "Option4", "Option1", "Programming"));
-        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        assertEquals(HttpStatus.CREATED, actualResult.getStatusCode());
     }
 }

@@ -3,8 +3,9 @@ spring:
     name: quizapp
 
   # Default profile settings
-  profiles:
-    active: mysql  # Set default profile to mysql
+  spring:
+    profiles:
+      active: mysql  # Set default profile to mysql
 
   # Common settings across all profiles
   jpa:
@@ -21,7 +22,9 @@ spring:
 # Profile-specific settings
 ---
 spring:
-  profiles: h2
+  config:
+    activate:
+      on-profile: h2
   datasource:
     url: jdbc:h2:mem:dcbapp
     username: sa
@@ -37,7 +40,9 @@ spring:
 
 ---
 spring:
-  profiles: mysql
+  config:
+    activate:
+      on-profile: mysql
   datasource:
     url: jdbc:mysql://localhost:3306/quiz_database
     username: root

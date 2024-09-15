@@ -49,7 +49,7 @@ class QuestionControllerTest {
                 new Question(2, 2, "What is Spring?", "Option1", "Option2", "Option3", "Option4", "Option2", "Framework")
         );
 
-        // Mock the service response
+        // Mock the method's service response
         Mockito.when(questionService.getQuestionsList())
                 .thenReturn(new ResponseEntity<>(mockQuestions, HttpStatus.OK));
 

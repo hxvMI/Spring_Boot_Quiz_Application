@@ -16,6 +16,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/** Since we have multiple @Service we need to specify the class **/
 @SpringBootTest(classes = QuestionServiceImpl.class)
 class QuestionServiceImplTest {
 
